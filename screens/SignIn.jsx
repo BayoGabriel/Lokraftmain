@@ -13,7 +13,6 @@ const SignIn = ({ onNavigate }) => {
   const carouselImages = [
     Car,
     Car2,
-    Car3
   ]
 
   return (
