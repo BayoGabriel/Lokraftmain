@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap');
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Uniform Pro'), url('/fonts/UniformPro-Reg.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Uniform Pro Italic'), url('/fonts/UniformPro-RegIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Uniform Pro Light'), url('/fonts/UniformPro-Lgt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Uniform Pro Light Italic'), url('/fonts/UniformPro-LgtIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Uniform Pro Medium'), url('/fonts/UniformPro-Med.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Uniform Pro Medium Italic'), url('/fonts/UniformPro-MedIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Uniform Pro Bold'), url('/fonts/UniformPro-Bld.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Uniform Pro Bold Italic'), url('/fonts/UniformPro-BldIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Uniform Pro Black'), url('/fonts/UniformPro-Blk.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Uniform Pro Black Italic'), url('/fonts/UniformPro-BlkIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Uniform Pro Thin'), url('/fonts/UniformPro-Thn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Uniform Pro';
+  font-style: italic;
+  font-weight: 100;
+  src: local('Uniform Pro Thin Italic'), url('/fonts/UniformPro-ThnIt.woff') format('woff');
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.how-it-works-step.active {
+  border-left: 4px solid #f97316;
+}
+
+.how-it-works-step.active h3 {
+  color: #f97316;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+.gradient {
+  background: linear-gradient(180deg, rgba(65, 166, 197, 0.0273) -4.75%, rgba(31, 80, 95, 0.07) 100%);
+}
+h2 {
+  @apply text-[85px] font-[700] leading-[100%] tracking-[0px];
+  font-family: 'Uniform Pro', sans-serif;
+}
+.hfre {
+  font-family: "Encode Sans", sans-serif;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
