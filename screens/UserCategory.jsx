@@ -1,6 +1,7 @@
 "use client"
-import { FiTool, FiUsers, FiBuilding } from "react-icons/fi"
+import { FiTool, FiUsers,  } from "react-icons/fi"
 import ProgressBar from "@/components/reusables/ProgressBar"
+import { FaRegBuilding } from "react-icons/fa";
 
 const UserCategory = ({ onNavigate }) => {
   const carouselImages = ["/images/user-category.png"]
@@ -77,7 +78,7 @@ const UserCategory = ({ onNavigate }) => {
               className="bg-yellow-600 hover:bg-yellow-700 rounded-2xl p-8 cursor-pointer transition-colors group"
             >
               <div className="flex flex-col items-center text-center text-white">
-                <FiBuilding className="w-12 h-12 mb-4" />
+                <FaRegBuilding className="w-12 h-12 mb-4" />
                 <span className="text-xl font-semibold">Company</span>
               </div>
             </div>
