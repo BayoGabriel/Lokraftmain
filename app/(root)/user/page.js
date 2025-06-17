@@ -1,58 +1,147 @@
 "use client"
 
 import { useState } from "react"
-import SignIn from "@/screens/SignIn"
-import AccountType from "@/screens/AccountType"
-import Registration from "@/screens/Registration"
-import EmailConfirmation from "@/screens/EmailConfirmation"
-import UserCategory from "@/screens/UserCategory"
-import SelfieCapture from "@/screens/SelfieCapture"
-import ProfileComplete from "@/screens/ProfileComplete"
+import { motion, AnimatePresence } from "framer-motion"
+import UserCategoryScreen from "@/components/UserCategoryScreen"
+import AccountTypeScreen from "@/components/AccountTypeScreen"
+import GeneralDetailsScreen from "@/components/GeneralDetailsScreen"
+import EmailConfirmationScreen from "@/components/EmailConfirmationScreen"
+import SelfieScreen from "@/components/SelfieScreen"
+import CompletionScreen from "@/components/CompletionScreen"
 
-const App = () => {
-  const [currentScreen, setCurrentScreen] = useState("sign-in")
+export default function Home() {
+  const [currentStep, setCurrentStep] = useState(1)
+  const [formData, setFormData] = useState({
+    userCategory: "",
+    accountType: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    state: "",
+    lga: "",
+    skills: [],
+  })
 
-  const handleNavigate = (screen) => {
-    setCurrentScreen(screen)
+  const updateFormData = (data) => {
+    setFormData((prev) => ({ ...prev, ...data }))
   }
 
-  const renderScreen = () => {
-    switch (currentScreen) {
-      case "sign-in":
-        return <SignIn onNavigate={handleNavigate} />
-      case "account-type":
-        return <AccountType onNavigate={handleNavigate} />
-      case "registration":
-        return <Registration onNavigate={handleNavigate} />
-      case "email-confirmation":
-        return <EmailConfirmation onNavigate={handleNavigate} />
-      case "user-category":
-        return <UserCategory onNavigate={handleNavigate} />
-      case "selfie-capture":
-        return <SelfieCapture onNavigate={handleNavigate} />
-      case "profile-complete":
-        return <ProfileComplete onNavigate={handleNavigate} />
-      case "dashboard":
-        return (
-          <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="text-center">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Dashboard</h1>
-              <p className="text-gray-600">Welcome to your Lokraft dashboard!</p>
-              <button
-                onClick={() => handleNavigate("sign-in")}
-                className="mt-4 px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700"
-              >
-                Back to Sign In
-              </button>
-            </div>
-          </div>
-        )
-      default:
-        return <SignIn onNavigate={handleNavigate} />
-    }
+  const nextStep = () => {
+    setCurrentStep((prev) => prev + 1)
   }
 
-  return <div className="font-sans">{renderScreen()}</div>
+  const prevStep = () => {
+    setCurrentStep((prev) => prev - 1)
+  }
+
+  const pageVariants = {
+    initial: { opacity: 0, x: 100 },
+    in: { opacity: 1, x: 0 },
+    out: { opacity: 0, x: -100 },
+  }
+
+  const pageTransition = {
+    type: "tween",
+    ease: "anticipate",
+    duration: 0.5,
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <AnimatePresence mode="wait">
+        {currentStep === 1 && (
+          <motion.div
+            key="step1"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <UserCategoryScreen
+              onNext={nextStep}
+              onSelect={(category) => updateFormData({ userCategory: category })}
+              selected={formData.userCategory}
+            />
+          </motion.div>
+        )}
+
+        {currentStep === 2 && (
+          <motion.div
+            key="step2"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <AccountTypeScreen
+              onNext={nextStep}
+              onBack={prevStep}
+              onSelect={(type) => updateFormData({ accountType: type })}
+              selected={formData.accountType}
+            />
+          </motion.div>
+        )}
+
+        {currentStep === 3 && (
+          <motion.div
+            key="step3"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <GeneralDetailsScreen
+              onNext={nextStep}
+              onBack={prevStep}
+              formData={formData}
+              updateFormData={updateFormData}
+            />
+          </motion.div>
+        )}
+
+        {currentStep === 4 && (
+          <motion.div
+            key="step4"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <EmailConfirmationScreen onNext={nextStep} onBack={prevStep} />
+          </motion.div>
+        )}
+
+        {currentStep === 5 && (
+          <motion.div
+            key="step5"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <SelfieScreen onNext={nextStep} onBack={prevStep} />
+          </motion.div>
+        )}
+
+        {currentStep === 6 && (
+          <motion.div
+            key="step6"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+          >
+            <CompletionScreen />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
 }
-
-export default App
