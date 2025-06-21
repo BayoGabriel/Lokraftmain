@@ -7,7 +7,7 @@ import Image from "next/image"
 import { Slide } from "@/public"
 import Header from "./Header"
 
-const General_Details_Screen = ({ onNext, onBack, formData, updateFormData, step, totalSteps }) => {
+const Customer_Details_Screen = ({ onNext, onBack, formData, updateFormData, step, totalSteps }) => {
   const [agreed, setAgreed] = useState(false)
 
   const handleSubmit = (e) => {
@@ -23,21 +23,23 @@ const General_Details_Screen = ({ onNext, onBack, formData, updateFormData, step
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+      <Header step={step} totalSteps={totalSteps} title="Personal Details" />
+      
+      <div className="h-[calc(100vh-80px)] grid grid-cols-1 lg:grid-cols-2 gap-2">
+        {/* Left side - Image */}
         <div className="hidden lg:block">
-          <Image src={Slide} className="object-cover w-full h-full" alt="slide" />
+          <Image src={Slide || "/placeholder.svg"} className="object-cover w-full h-full" alt="slide"/>
         </div>
+
+        {/* Right side - Form */}
         <div className="p-6 md:p-12 overflow-y-auto">
-          <button
-            onClick={onBack}
-            className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 mb-6 md:mb-8"
-          >
+          <button onClick={onBack} className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 mb-6 md:mb-8">
             <IoArrowBack className="text-xl" />
             <span>Back</span>
           </button>
 
           <div className="max-w-md mx-auto">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">General details</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Personal details</h1>
             <p className="text-gray-600 mb-6 md:mb-8">We would like to know more about you</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -128,23 +130,6 @@ const General_Details_Screen = ({ onNext, onBack, formData, updateFormData, step
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Skill/Services</label>
-                <div className="relative">
-                  <select
-                    value={formData.skills[0] || ""}
-                    onChange={(e) => handleInputChange("skills", [e.target.value])}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent appearance-none"
-                  >
-                    <option value="">Select 2 max</option>
-                    <option value="tailoring">Tailoring</option>
-                    <option value="carpentry">Carpentry</option>
-                    <option value="plumbing">Plumbing</option>
-                  </select>
-                  <IoChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                </div>
-              </div>
-
               <div className="flex items-start space-x-3">
                 <input
                   type="checkbox"
@@ -177,4 +162,4 @@ const General_Details_Screen = ({ onNext, onBack, formData, updateFormData, step
   )
 }
 
-export default General_Details_Screen
+export default Customer_Details_Screen

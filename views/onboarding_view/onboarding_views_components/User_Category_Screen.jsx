@@ -6,7 +6,7 @@ import Carousel from "../../../components/Carousel"
 import { Abi, Abi2, Abi1, Company, Customer, Artisan } from "@/public"
 import Image from "next/image"
 
-export default function User_Category_Screen({ onNext, onSelect, selected }) {
+export default function User_Category_Screen({ onSelect, selected }) {
   const [selectedCategory, setSelectedCategory] = useState(selected)
 
   const categories = [
@@ -21,11 +21,13 @@ export default function User_Category_Screen({ onNext, onSelect, selected }) {
       content: (
         <div className="text-white h-full flex flex-col">
           <div className="flex-1 flex items-center justify-center">
-            <Image src={Abi} alt="abi" className="object-contain"/>
+            <Image src={Abi || "/placeholder.svg"} alt="abi" className="object-contain max-w-full max-h-full" />
           </div>
-          <div className="flex-shrink-0">
-            <h5 className="text-[30px] font-[700] text-[#D8D96B] text-center">Create Your Profile</h5>
-            <p className="text-[16px] font-[400] text-center">Tell your story and introduce your brand.</p>
+          <div className="flex-shrink-0 px-4">
+            <h5 className="text-[24px] md:text-[30px] font-[700] text-[#D8D96B] text-center">Create Your Profile</h5>
+            <p className="text-[14px] md:text-[16px] font-[400] text-center">
+              Tell your story and introduce your brand.
+            </p>
           </div>
         </div>
       ),
@@ -34,12 +36,16 @@ export default function User_Category_Screen({ onNext, onSelect, selected }) {
       id: 2,
       content: (
         <div className="text-white h-full flex flex-col">
-          <div className="flex-1 flex items-center justify-center ">
-            <Image src={Abi1} alt="abi" className="object-contain"/>
+          <div className="flex-1 flex items-center justify-center">
+            <Image src={Abi1 || "/placeholder.svg"} alt="abi" className="object-contain max-w-full max-h-full" />
           </div>
-          <div className="flex-shrink-0">
-            <h5 className="text-[30px] font-[700] text-[#D8D96B] text-center">Get access to quality jobs</h5>
-            <p className="text-[16px] font-[400] text-center">As artisan on Lokraft are sure of getting jobs that match your skills</p>
+          <div className="flex-shrink-0 px-4">
+            <h5 className="text-[24px] md:text-[30px] font-[700] text-[#D8D96B] text-center">
+              Get access to quality jobs
+            </h5>
+            <p className="text-[14px] md:text-[16px] font-[400] text-center">
+              As artisan on Lokraft are sure of getting jobs that match your skills
+            </p>
           </div>
         </div>
       ),
@@ -49,11 +55,13 @@ export default function User_Category_Screen({ onNext, onSelect, selected }) {
       content: (
         <div className="text-white h-full flex flex-col">
           <div className="flex-1 flex items-center justify-center">
-            <Image src={Abi2} alt="abi" className="object-contain"/>
+            <Image src={Abi2 || "/placeholder.svg"} alt="abi" className="object-contain max-w-full max-h-full" />
           </div>
-          <div className="flex-shrink-0">
-            <h5 className="text-[30px] font-[700] text-[#D8D96B] text-center">Increase your earnings</h5>
-            <p className="text-[16px] font-[400] text-center">Tell your story and introduce your brand.</p>
+          <div className="flex-shrink-0 px-4">
+            <h5 className="text-[24px] md:text-[30px] font-[700] text-[#D8D96B] text-center">Increase your earnings</h5>
+            <p className="text-[14px] md:text-[16px] font-[400] text-center">
+              Tell your story and introduce your brand.
+            </p>
           </div>
         </div>
       ),
@@ -65,72 +73,57 @@ export default function User_Category_Screen({ onNext, onSelect, selected }) {
     onSelect(categoryId)
   }
 
-  const handleNext = () => {
-    if (selectedCategory) {
-      onNext()
-    }
-  }
-
   return (
-    <div className="h-screen bg-gray-50 flex overflow-hidden">
-        <div className="w-1/2 bg-[#054F43] h-full flex px-20 gap-5 py-10 flex-col items-center justify-between">
-          <div className="w-full flex-1 flex flex-col">
-            <Carousel cards={carouselCards} />
-          </div>
-          <div className="flex items-center w-full justify-evenly text-white text-sm flex-shrink-0">
-            <span>© Lokraft. 2025</span>
-            <span>Help center</span>
-            <span>Terms of service</span>
-          </div>
+    <div className="h-screen bg-gray-50 flex flex-col md:flex-row overflow-hidden">
+      <div className="w-full md:w-1/2 bg-[#054F43] h-1/2 md:h-full flex px-8 md:px-20 gap-5 py-6 md:py-10 flex-col items-center justify-between">
+        <div className="w-full flex-1 flex flex-col min-h-0">
+          <Carousel cards={carouselCards} />
         </div>
+        <div className="flex items-center w-full justify-evenly text-white text-xs md:text-sm flex-shrink-0">
+          <span>© Lokraft. 2025</span>
+          <span>Help center</span>
+          <span>Terms of service</span>
+        </div>
+      </div>
 
-        <div className="w-1/2 p-12 flex flex-col justify-center h-full overflow-y-auto">
-          <div className="max-w-md mx-auto w-full">
-            <h1 className="text-3xl font-bold text-gray-800 mb-12 text-center">Select user category</h1>
+      <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center h-1/2 md:h-full overflow-y-auto">
+        <div className="max-w-md mx-auto w-full">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 md:mb-12 text-center">
+            Select user category
+          </h1>
 
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              {categories.slice(0, 2).map((category) => (
-                <motion.button
-                  key={category.id}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleCategorySelect(category.id)}
-                  className={`${category.color} text-white p-8 rounded-2xl flex flex-col items-center justify-center space-y-4 h-40 transition-all duration-200 ${
-                    selectedCategory === category.id ? "ring-4 ring-offset-2 ring-gray-400" : ""
-                  }`}
-                >
-                  <Image src={category.icon} alt="image" />
-                  <span className="font-semibold text-lg">{category.name}</span>
-                </motion.button>
-              ))}
-            </div>
-
-            <div className="flex justify-start mb-8">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+            {categories.slice(0, 2).map((category) => (
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                key={category.id}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleCategorySelect("company")}
-                className={`bg-yellow-600 text-white p-8 rounded-2xl flex flex-col items-center justify-center space-y-4 h-40 w-48 transition-all duration-200 ${
-                  selectedCategory === "company" ? "ring-4 ring-offset-2 ring-gray-400" : ""
+                onClick={() => handleCategorySelect(category.id)}
+                className={`${category.color} text-white p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center space-y-2 md:space-y-4 h-32 md:h-40 transition-all duration-200 ${
+                  selectedCategory === category.id ? "ring-4 ring-offset-2 ring-gray-400" : ""
                 }`}
               >
-                <Image src={Company} alt="image" />
-                <span className="font-semibold text-lg">Company</span>
+                <Image src={category.icon || "/placeholder.svg"} alt="image" className="w-8 h-8 md:w-auto md:h-auto" />
+                <span className="font-semibold text-sm md:text-lg">{category.name}</span>
               </motion.button>
-            </div>
+            ))}
+          </div>
 
-            {selectedCategory && (
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                onClick={handleNext}
-                className="w-full bg-teal-600 text-white py-4 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
-              >
-                Continue
-              </motion.button>
-            )}
+          <div className="flex justify-start mb-6 md:mb-8">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleCategorySelect("company")}
+              className={`bg-yellow-600 text-white p-4 md:p-8 rounded-2xl flex flex-col items-center justify-center space-y-2 md:space-y-4 h-32 md:h-40 w-full sm:w-48 transition-all duration-200 ${
+                selectedCategory === "company" ? "ring-4 ring-offset-2 ring-gray-400" : ""
+              }`}
+            >
+              <Image src={Company || "/placeholder.svg"} alt="image" className="w-8 h-8 md:w-auto md:h-auto" />
+              <span className="font-semibold text-sm md:text-lg">Company</span>
+            </motion.button>
           </div>
         </div>
+      </div>
     </div>
   )
 }

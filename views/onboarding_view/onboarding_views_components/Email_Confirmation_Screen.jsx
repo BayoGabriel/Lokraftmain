@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { IoArrowBack } from "react-icons/io5"
 import Header from "./Header"
 
-const Email_Confirmation_Screen = ({ onNext, onBack }) => {
+const Email_Confirmation_Screen = ({ onNext, onBack, step, totalSteps }) => {
   const [code, setCode] = useState(["", "", "", "", ""])
   const inputRefs = useRef([])
 
@@ -38,24 +38,24 @@ const Email_Confirmation_Screen = ({ onNext, onBack }) => {
   const isComplete = code.every((digit) => digit !== "")
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header step={4} totalSteps={5} title="Email Confirmation" />
+    <div className="min-h-screen bg-gray-50 overflow-y-auto">
+      <Header step={step} totalSteps={totalSteps} title="Email Confirmation" />
 
-      <div className="container mx-auto px-8 py-12">
-        <button onClick={onBack} className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 mb-8">
+      <div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
+        <button onClick={onBack} className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 mb-6 md:mb-8">
           <IoArrowBack className="text-xl" />
           <span>Back</span>
         </button>
 
         <div className="max-w-md mx-auto">
-          <div className="bg-white rounded-2xl p-12 shadow-lg">
-            <h1 className="text-2xl font-bold text-gray-800 text-center mb-4">Verify Your Email</h1>
-            <p className="text-gray-600 text-center mb-8">
+          <div className="bg-white rounded-2xl p-6 md:p-12 shadow-lg">
+            <h1 className="text-xl md:text-2xl font-bold text-gray-800 text-center mb-4">Verify Your Email</h1>
+            <p className="text-gray-600 text-center mb-6 md:mb-8">
               Kindly input the code sent to your email to complete your registration.
             </p>
 
             <form onSubmit={handleSubmit}>
-              <div className="flex justify-center space-x-3 mb-8">
+              <div className="flex justify-center space-x-2 md:space-x-3 mb-6 md:mb-8">
                 {code.map((digit, index) => (
                   <input
                     key={index}
@@ -64,13 +64,13 @@ const Email_Confirmation_Screen = ({ onNext, onBack }) => {
                     value={digit}
                     onChange={(e) => handleInputChange(index, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(index, e)}
-                    className="w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:border-teal-500 focus:outline-none"
+                    className="w-10 h-10 md:w-12 md:h-12 text-center text-lg md:text-xl font-semibold border-2 border-gray-300 rounded-lg focus:border-teal-500 focus:outline-none"
                     maxLength={1}
                   />
                 ))}
               </div>
 
-              <div className="text-center mb-8">
+              <div className="text-center mb-6 md:mb-8">
                 <button type="button" className="text-teal-600 hover:text-teal-700 font-medium">
                   Resend code
                 </button>
@@ -96,4 +96,5 @@ const Email_Confirmation_Screen = ({ onNext, onBack }) => {
     </div>
   )
 }
+
 export default Email_Confirmation_Screen
