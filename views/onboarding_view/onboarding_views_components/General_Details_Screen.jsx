@@ -3,12 +3,10 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { IoArrowBack, IoChevronDown } from "react-icons/io5"
-import Carousel from "./Carousel"
-import Header from "./Header"
 import Image from "next/image"
 import { Slide } from "@/public"
 
-export default function GeneralDetailsScreen({ onNext, onBack, formData, updateFormData }) {
+const General_Details_Screen =({ onNext, onBack, formData, updateFormData }) => {
   const [agreed, setAgreed] = useState(false)
 
   const carouselCards = [
@@ -192,3 +190,4 @@ export default function GeneralDetailsScreen({ onNext, onBack, formData, updateF
     </div>
   )
 }
+export default General_Details_Screen

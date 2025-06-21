@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { IoArrowBack } from "react-icons/io5"
 import Header from "./Header"
 
-export default function EmailConfirmationScreen({ onNext, onBack }) {
+const Email_Confirmation_Screen = ({ onNext, onBack }) => {
   const [code, setCode] = useState(["", "", "", "", ""])
   const inputRefs = useRef([])
 
@@ -96,3 +96,4 @@ export default function EmailConfirmationScreen({ onNext, onBack }) {
     </div>
   )
 }
+export default Email_Confirmation_Screen

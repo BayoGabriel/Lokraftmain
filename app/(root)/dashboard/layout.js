@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Header from "@/components/Header"
+import Header from "@/views/onboarding_view/onboarding_views_components/Header"
 import Sidebar from "@/components/Sidebar"
 import one from "@/public/img1.png"
 import two from "@/public/img2.png"

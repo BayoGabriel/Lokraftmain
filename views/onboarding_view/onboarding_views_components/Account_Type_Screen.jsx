@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { IoArrowBack } from "react-icons/io5"
 import Header from "./Header"
 
-export default function AccountTypeScreen({ onNext, onBack, onSelect, selected }) {
+const Account_Type_Screen = ({ onNext, onBack, onSelect, selected }) => {
   const [selectedType, setSelectedType] = useState(selected)
 
   const handleTypeSelect = (type) => {
@@ -89,3 +89,4 @@ export default function AccountTypeScreen({ onNext, onBack, onSelect, selected }
     </div>
   )
 }
+export default Account_Type_Screen

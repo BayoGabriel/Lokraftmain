@@ -12,7 +12,13 @@ import Slide from "./Side.png"
 import TechncianDp from "./tech.png"
 import Yellow1 from "./yellow1.png"
 import Yellow2 from "./yellow2.png"
+import GreenBg from "./logobg.svg"
+import MainLogo from "./lokraftlogo.svg"
+import LogoBeige from "./logobeige.svg"
 export {
+    LogoBeige,
+    MainLogo,
+    GreenBg,
     Car,
     Car2,
     Car3,

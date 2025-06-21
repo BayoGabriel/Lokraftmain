@@ -4,15 +4,14 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { FaSquareXTwitter } from "react-icons/fa6"
-import logobeige from "@/public/logobeige.svg"
 import Image from "next/image"
 import Link from "next/link";
+import { LogoBeige } from "@/public";
 export default function Footer() {
   const [email, setEmail] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle newsletter signup
     console.log("Newsletter signup:", email)
     setEmail("")
   }
@@ -22,7 +21,7 @@ export default function Footer() {
       
       <div className="mx-auto px-6 md:px-12 lg:px-36 py-12 md:py-20">
         <div className="mb-4">
-          <Image src={logobeige} alt="logo"/>
+          <Image src={LogoBeige} alt="logo"/>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
         <motion.div
@@ -36,7 +35,6 @@ export default function Footer() {
           </p>
         </motion.div>
 
-        {/* Company Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

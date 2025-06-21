@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { FaCheckCircle } from "react-icons/fa"
 
-export default function CompletionScreen() {
+const Completion_Screen = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="text-center">
@@ -55,3 +55,4 @@ export default function CompletionScreen() {
     </div>
   )
 }
+export default Completion_Screen

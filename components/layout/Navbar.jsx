@@ -13,17 +13,15 @@ export default function Navbar() {
   return (
     <nav className="bg-white py-4 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex justify-center items-center">
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <NavLinks pathname={pathname} />
-          <Link href='/user'
+          <Link href='/onboarding'
             className="px-6 py-2 rounded-[8px] border-2 border-[#02846B] text-[#02846B] font-medium hover:bg-[#02846B] hover:text-white transition-all duration-300"
           >
             Get started
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-700">
             {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -31,7 +29,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -41,7 +38,7 @@ export default function Navbar() {
         >
           <div className="flex flex-col space-y-4">
             <NavLinks pathname={pathname} mobile={true} />
-            <Link href="/user" className="px-6 py-2 rounded-full border-2 border-[#02846B] text-[#02846B] font-medium hover:bg-[#02846B] hover:text-white transition-all duration-300">
+            <Link href="/onboarding" className="px-6 py-2 rounded-full border-2 border-[#02846B] text-[#02846B] font-medium hover:bg-[#02846B] hover:text-white transition-all duration-300">
               Get started
             </Link>
           </div>
@@ -54,8 +51,8 @@ export default function Navbar() {
 function NavLinks({ mobile = false, pathname }) {
   const links = [
     { name: "Home", href: "/" },
-    { name: "For Users", href: "/auth" },
-    { name: "For Artisans", href: "/auth" },
+    { name: "For Users", href: "/users" },
+    { name: "For Artisans", href: "/artisans" },
     { name: "About Us", href: "/about" },
   ]
 

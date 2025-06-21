@@ -2,12 +2,11 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { FaHammer, FaUsers, FaBuilding } from "react-icons/fa"
-import Carousel from "./Carousel"
+import Carousel from "../../../components/Carousel"
 import { Abi, Abi2, Abi1, Company, Customer, Artisan } from "@/public"
 import Image from "next/image"
 
-export default function UserCategoryScreen({ onNext, onSelect, selected }) {
+export default function User_Category_Screen({ onNext, onSelect, selected }) {
   const [selectedCategory, setSelectedCategory] = useState(selected)
 
   const categories = [
@@ -85,7 +84,6 @@ export default function UserCategoryScreen({ onNext, onSelect, selected }) {
           </div>
         </div>
 
-        {/* Right side - Category Selection */}
         <div className="w-1/2 p-12 flex flex-col justify-center h-full overflow-y-auto">
           <div className="max-w-md mx-auto w-full">
             <h1 className="text-3xl font-bold text-gray-800 mb-12 text-center">Select user category</h1>

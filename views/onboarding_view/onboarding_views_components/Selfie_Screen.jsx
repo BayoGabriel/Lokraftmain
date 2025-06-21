@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { IoArrowBack } from "react-icons/io5"
 import Header from "./Header"
 
-export default function SelfieScreen({ onNext, onBack }) {
+const Selfie_Screen = ({ onNext, onBack }) => {
   const handleContinue = () => {
     onNext()
   }
@@ -45,3 +45,4 @@ export default function SelfieScreen({ onNext, onBack }) {
     </div>
   )
 }
+export default Selfie_Screen
