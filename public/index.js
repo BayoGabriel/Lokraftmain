@@ -9,6 +9,9 @@ import Artisan from "./artisan.svg"
 import FullColorLogo from "./lokraftfullcolor.svg"
 import Customer from "./customer.svg"
 import Slide from "./Side.png"
+import TechncianDp from "./tech.png"
+import Yellow1 from "./yellow1.png"
+import Yellow2 from "./yellow2.png"
 export {
     Car,
     Car2,
@@ -16,6 +19,9 @@ export {
     Abi,
     Abi1,
     FullColorLogo,
+    Yellow2,
+    Yellow1,
+    TechncianDp,
     Slide,
     Abi2,
     Company,

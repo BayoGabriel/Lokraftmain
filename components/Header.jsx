@@ -1,5 +1,6 @@
 import { FiSearch, FiMail, FiBell } from "react-icons/fi"
-
+import Image from "next/image"
+import { TechncianDp } from "@/public"
 const Header = () => {
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
@@ -14,28 +15,28 @@ const Header = () => {
             <input
               type="text"
               placeholder="search anything"
-              className="w-full pl-10 pr-4 py-2 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 bg-[#D9D9D954] border border-gray-200 rounded-[70px] focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-transparent"
             />
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-8">
           <div className="relative">
             <FiMail className="w-6 h-6 text-gray-600" />
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            <span className="absolute -top-2 -right-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
               50
             </span>
           </div>
 
           <div className="relative">
             <FiBell className="w-6 h-6 text-gray-600" />
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            <span className="absolute -top-2 -right-4 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
               2
             </span>
           </div>
 
           <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-            <img src="/placeholder.svg?height=32&width=32" alt="Profile" className="w-8 h-8 rounded-full" />
+            <Image src={TechncianDp} alt="Profile" className="w-8 h-8 rounded-full" />
           </div>
         </div>
       </div>
