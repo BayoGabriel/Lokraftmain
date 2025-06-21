@@ -74,7 +74,7 @@ export default function User_Category_Screen({ onSelect, selected }) {
   }
 
   return (
-    <div className="h-screen bg-gray-50 flex flex-col md:flex-row overflow-hidden">
+    <div className="h-screen bg-gray-50 flex flex-col max-md:gap-10 md:flex-row overflow-hidden">
       <div className="w-full md:w-1/2 bg-[#054F43] h-1/2 md:h-full flex px-8 md:px-20 gap-5 py-6 md:py-10 flex-col items-center justify-between">
         <div className="w-full flex-1 flex flex-col min-h-0">
           <Carousel cards={carouselCards} />
