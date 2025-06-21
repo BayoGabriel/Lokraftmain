@@ -2,13 +2,14 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { LuCrown } from "react-icons/lu";
-import { FiChevronLeft, FiChevronRight, FiMapPin, FiStar } from "react-icons/fi"
+import { LuCrown } from "react-icons/lu"
+import { FiChevronLeft, FiChevronRight, FiMapPin } from "react-icons/fi"
 import { MdVerified } from "react-icons/md"
 import top from "@/public/top.png"
 import toprated from "@/public/toprated.svg"
 import top2 from "@/public/top2.png"
 import Image from "next/image"
+
 const artisansData = [
   {
     id: 1,
@@ -77,7 +78,8 @@ export default function TopRatedArtisans() {
 
   const getVisibleArtisans = () => {
     const visible = []
-    for (let i = 0; i < 3; i++) {
+    const itemsToShow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1
+    for (let i = 0; i < itemsToShow; i++) {
       const index = (currentIndex + i) % artisansData.length
       visible.push(artisansData[index])
     }
@@ -85,98 +87,99 @@ export default function TopRatedArtisans() {
   }
 
   return (
-    <section className="w-full mx-auto pl-6 md:pl-12 lg:pl-36 py-12 md:py-20">
-        <div className="flex items-center mb-12">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="h2 text-[#DD7E02]"
-          >
-            Top Rated
-            <br />
-            Artisan's
-          </motion.h2>
-        </div>
+    <section className="w-full mx-auto px-4 sm:px-6 md:px-12 lg:pl-36 py-8 sm:py-12 md:py-20">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12">
+        <motion.h2
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-[85px] font-bold text-[#DD7E02] mb-4 sm:mb-0"
+        >
+          Top Rated
+          <br />
+          Artisan's
+        </motion.h2>
 
-        <div className="grid md:grid-cols-4 gap-6 overflow-hidden">
         <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex gap-3 items-start justify-center"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex gap-3 items-center justify-center"
+        >
+          <button
+            onClick={prevSlide}
+            disabled={isAnimating}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 disabled:opacity-50"
           >
-            <button
-              onClick={prevSlide}
-              disabled={isAnimating}
-              className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 disabled:opacity-50"
-            >
-              <FiChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={nextSlide}
-              disabled={isAnimating}
-              className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 disabled:opacity-50"
-            >
-              <FiChevronRight className="w-5 h-5" />
-            </button>
-          </motion.div>
-          {getVisibleArtisans().map((artisan, index) => (
-            <motion.div
-              key={`${artisan.id}-${currentIndex}`}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
+            <FiChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+          </button>
+          <button
+            onClick={nextSlide}
+            disabled={isAnimating}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 disabled:opacity-50"
+          >
+            <FiChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+          </button>
+        </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden">
+        {getVisibleArtisans().map((artisan, index) => (
+          <motion.div
+            key={`${artisan.id}-${currentIndex}`}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <div>
+              <Image
+                src={artisan.image || "/placeholder.svg"}
+                alt={artisan.name}
+                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+              />
+            </div>
+
+            <div className="p-4 sm:p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="text-base sm:text-lg flex items-center gap-2 font-semibold text-gray-800">
+                  {artisan.name}
+                </h3>
+                {artisan.verified && <MdVerified className="w-4 h-4 text-[#02846B]" />}
+              </div>
+
+              <div className="flex items-center gap-1 text-black mb-4">
+                <FiMapPin className="w-4 h-4 text-[#02846B]" />
+                <span className="text-xs sm:text-sm">{artisan.location}</span>
+              </div>
+
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-1">
+                  <div className="bg-white border-2 border-[#02846B] flex items-center justify-center p-1 text-[#02846B] rounded-full">
+                    <LuCrown className="w-3 h-3 sm:w-4 sm:h-4" />
+                  </div>
+                  <span className="text-xs sm:text-sm text-gray-600">{artisan.jobSuccess}% Job Success</span>
+                </div>
+                {artisan.topRated && (
+                  <div className="flex items-center gap-1 px-2 py-1">
+                    <Image src={toprated || "/placeholder.svg"} alt="toprated" className="w-3 h-3" />
+                    <span className="text-xs text-black font-medium">Top rated</span>
+                  </div>
+                )}
+              </div>
               <div>
-                <Image
-                  src={artisan.image}
-                  alt={artisan.name}
-                  className="w-full h-64 object-cover"
-                />
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="py-2 px-4 sm:px-6 border rounded-full border-gray-300 text-gray-700 hover:border-orange-500 hover:text-orange-500 transition-colors duration-200 text-sm"
+                >
+                  View profile
+                </motion.button>
               </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-lg flex items-center gap-2 font-semibold text-gray-800">
-                    {artisan.name}
-                  </h3>
-                  {artisan.verified && <MdVerified className="w-4 h-4 text-[#02846B]" />}
-                </div>
-
-                <div className="flex items-center gap-1 text-black mb-4">
-                  <FiMapPin className="w-4 h-4 text-[#02846B]" />
-                  <span className="text-sm">{artisan.location}</span>
-                </div>
-
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1">
-                    <div className="bg-white border-2 border-[#02846B] flex items-center justify-center p-1 text-[#02846B] rounded-full">
-                      <LuCrown/>
-                    </div>
-                    <span className="text-sm text-gray-600">{artisan.jobSuccess}% Job Success</span>
-                  </div>
-                  {artisan.topRated && (
-                    <div className="flex items-center gap-1 px-2 py-1 ">
-                      <Image src={toprated} alt="toprated" className="w-3 h-3" />
-                      <span className="text-xs text-black font-medium">Top rated</span>
-                    </div>
-                  )}
-                </div>
-                  <div className="">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="py-2 px-6 border rounded-full border-gray-300 text-gray-700 hover:border-orange-500 hover:text-orange-500 transition-colors duration-200"
-                    >
-                      View profile
-                    </motion.button>
-                  </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   )
 }

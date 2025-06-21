@@ -52,13 +52,13 @@ export default function OurValues() {
   }
 
   return (
-    <div className="w-full mx-auto px-6 md:px-12 lg:px-36 py-12 md:py-20">
+    <div className="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-36 py-8 sm:py-12 md:py-20">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="h2 text-[#F9A607] text-center mb-16"
+        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-[85px] font-bold text-[#F9A607] text-center mb-8 sm:mb-12 lg:mb-16"
       >
         Our Values
       </motion.h2>
@@ -68,20 +68,20 @@ export default function OurValues() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
       >
         {values.map((value, index) => (
           <motion.div
             key={index}
             variants={item}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="value-card pb-[20px] bg-white p-8 rounded-xl shadow-md hover:shadow-lg border-[#757575] border-[0.5px] transition-all duration-300"
+            className="value-card pb-[20px] bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg border-[#757575] border-[0.5px] transition-all duration-300"
           >
-            <div className="value-icon w-12 h-12 flex items-center justify-center bg-[#94D227] text-white rounded-full mb-4 transition-transform duration-300">
+            <div className="value-icon w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#94D227] text-white rounded-full mb-3 sm:mb-4 transition-transform duration-300">
               {value.icon}
             </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-3">{value.title}</h3>
-            <p className="text-gray-600">{value.description}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">{value.title}</h3>
+            <p className="text-sm sm:text-base text-gray-600">{value.description}</p>
           </motion.div>
         ))}
       </motion.div>

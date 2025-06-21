@@ -23,15 +23,14 @@ const Customer_Details_Screen = ({ onNext, onBack, formData, updateFormData, ste
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-hidden">
-      <Header step={step} totalSteps={totalSteps} title="Personal Details" />
+      {/* <Header step={step} totalSteps={totalSteps} title="Personal Details" /> */}
       
       <div className="h-[calc(100vh-80px)] grid grid-cols-1 lg:grid-cols-2 gap-2">
-        {/* Left side - Image */}
+      
         <div className="hidden lg:block">
           <Image src={Slide || "/placeholder.svg"} className="object-cover w-full h-full" alt="slide"/>
         </div>
 
-        {/* Right side - Form */}
         <div className="p-6 md:p-12 overflow-y-auto">
           <button onClick={onBack} className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 mb-6 md:mb-8">
             <IoArrowBack className="text-xl" />

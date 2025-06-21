@@ -15,7 +15,9 @@ import Yellow2 from "./yellow2.png"
 import GreenBg from "./logobg.svg"
 import MainLogo from "./lokraftlogo.svg"
 import LogoBeige from "./logobeige.svg"
+import Selfie from "./Ellipse 926.svg"
 export {
+    Selfie,
     LogoBeige,
     MainLogo,
     GreenBg,
