@@ -1,10 +1,10 @@
 "use client"
 
 import { Fragment } from "react"
-import Header from "./Header"
+// import Header from "./Header"
 import Sidebar from "@/components/Sidebar"
 
-export default function RootLayout({ children }) {
+const Customer_View_Modal = ({ children }) => {
  
 
   return (
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <div className="flex gap-2 min-h-screen bg-gray-50">
           <Sidebar />
           <main className="flex-1 flex-col gap-2">
-            <Header />
+            {/* <Header /> */}
             <div className="mt-2">
               {children}
               <Fragment />
@@ -24,4 +24,4 @@ export default function RootLayout({ children }) {
       </Fragment>
   )
 }
-
+export default Customer_View_Modal

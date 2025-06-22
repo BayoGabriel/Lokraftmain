@@ -16,7 +16,9 @@ import GreenBg from "./logobg.svg"
 import MainLogo from "./lokraftlogo.svg"
 import LogoBeige from "./logobeige.svg"
 import Selfie from "./Ellipse 926.svg"
+import BedFrame from "./bedframe.png"
 export {
+    BedFrame,
     Selfie,
     LogoBeige,
     MainLogo,

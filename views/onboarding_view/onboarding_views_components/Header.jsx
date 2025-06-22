@@ -8,7 +8,7 @@ const Header = ({ step, totalSteps, title }) => {
   return (
     <div className="bg-white border-b border-gray-200 px-4 md:px-6 py-4">
       <div className="flex items-center justify-between mb-4">
-        <div className=""><Image src={FullColorLogo} className=""/></div>
+        <div className=""><Image src={FullColorLogo} alt="logo" className=""/></div>
         <div className="flex items-start flex-col gap-2">
           <span className="text-sm text-gray-500">
             {step} of {totalSteps}
