@@ -76,7 +76,12 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="rounded-[20px] flex flex-col gap-4 border border-gray-50 p-2 bg-white">
+      <h3 className="text-[#333333] text-[24px] font-[700]">Jobs For You</h3>
+      <div className="flex gap-4">
+        <button className="rounded-[5px] px-[14px] py-[9px] border border-gray-500 text-[12px]">Best Matches</button>
+        <button className="rounded-[5px] px-[14px] py-[9px] border border-gray-500 text-[12px]">Most Recent</button>
+      </div>
       <div className="flex">
         <Job_List jobs={mockJobs} selectedJob={selectedJob} onJobSelect={handleJobSelect} />
         <Job_Detail job={selectedJob} />

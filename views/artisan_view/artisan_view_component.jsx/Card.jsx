@@ -12,16 +12,18 @@ const Card = ({ job, isSelected, onClick }) => {
       onClick={() => onClick(job)}
     >
       <div className="flex gap-3 flex-col">
-        <Image src={job.image || "/placeholder.svg"} alt={job.title} className="w-16 h-16 rounded-lg object-cover" />
+        <Image src={job.image} alt={job.title} className="w-full rounded-lg object-cover" />
         <div className="flex-1">
-          <h3 className="font-semibold text-gray-900 mb-1">{job.title}</h3>
-          <div className="flex items-center gap-1 text-sm text-gray-600 mb-1">
-            <FiMapPin className="w-3 h-3" />
-            <span>{job.location}</span>
-          </div>
-          <div className="flex items-center gap-1 text-sm text-gray-600 mb-2">
-            <FiClock className="w-3 h-3" />
-            <span>Posted {job.postedTime}</span>
+          <h3 className="font-[500] text-[#333333] mb-1">{job.title}</h3>
+          <div className="flex gap-3 items-center">
+            <div className="flex items-center gap-1 text-sm text-gray-600">
+              <FiMapPin className="w-3 h-3" />
+              <span>{job.location}</span>
+            </div>
+            <div className="flex items-center gap-1 text-sm text-gray-600">
+              <FiClock className="w-3 h-3" />
+              <span>Posted {job.postedTime}</span>
+            </div>
           </div>
           <div className="font-semibold text-gray-900">₦{job.price.toLocaleString()}</div>
         </div>

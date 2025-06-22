@@ -26,7 +26,7 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 h-screen flex flex-col">
+    <aside className="bg-white w-[20%] border-r border-gray-200 h-screen flex flex-col">
       <div className="p-6">
         <Link href="/" className="flex items-center space-x-2">
           <Image src={FullColorLogo} alt="logo"/>

@@ -2,11 +2,11 @@ import { FiMapPin, FiCalendar, FiBriefcase, FiStar } from "react-icons/fi"
 
 const Job_Detail = ({ job }) => {
   if (!job) {
-    return <div className="w-2/3 p-8 flex items-center justify-center text-gray-500">Select a job to view details</div>
+    return <div className="p-4 flex items-center justify-center text-gray-500">Select a job to view details</div>
   }
 
   return (
-    <div className="w-2/3 p-8">
+    <div className="p-4">
       <div className="max-w-2xl">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">{job.title}</h1>
 
