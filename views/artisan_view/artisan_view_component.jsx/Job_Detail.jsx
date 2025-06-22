@@ -41,7 +41,7 @@ const Job_Detail = ({ job }) => {
         </div>
 
         <div className="border-t pt-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">About the client</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">About the client</h2>
 
           <div className="space-y-3 mb-6">
             <div className="flex items-center gap-2">
