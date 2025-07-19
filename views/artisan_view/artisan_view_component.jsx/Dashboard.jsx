@@ -82,7 +82,7 @@ const Dashboard = () => {
         <button className="rounded-[5px] px-[14px] py-[9px] border border-gray-500 text-[12px]">Best Matches</button>
         <button className="rounded-[5px] px-[14px] py-[9px] border border-gray-500 text-[12px]">Most Recent</button>
       </div>
-      <div className="flex">
+      <div className="flex gap-3">
         <Job_List jobs={mockJobs} selectedJob={selectedJob} onJobSelect={handleJobSelect} />
         <Job_Detail job={selectedJob} />
       </div>

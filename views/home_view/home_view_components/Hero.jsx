@@ -25,7 +25,7 @@ export default function Hero() {
   ]
 
   return (
-    <div className="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-36 py-8 sm:py-12 md:py-20">
+    <div className="w-full mx-auto container px-4 sm:px-6 md:px-12 lg:px-36 py-8 sm:py-12 md:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

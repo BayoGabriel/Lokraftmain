@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#02846B] text-white w-full mx-auto">
-      
+      <div className="container mx-auto">
       <div className="mx-auto px-6 md:px-12 lg:px-36 py-12 md:py-20">
         <div className="mb-4">
           <Image src={LogoBeige} alt="logo"/>
@@ -131,6 +131,7 @@ export default function Footer() {
           </div>
         </div>
       </motion.div>
+      </div>
     </footer>
   )
 }

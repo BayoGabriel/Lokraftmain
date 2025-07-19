@@ -87,7 +87,7 @@ export default function TopRatedArtisans() {
   }
 
   return (
-    <section className="w-full mx-auto px-4 sm:px-6 md:px-12 lg:pl-36 py-8 sm:py-12 md:py-20">
+    <section className="w-full mx-auto container px-4 sm:px-6 md:px-12 lg:pl-36 py-8 sm:py-12 md:py-20">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}

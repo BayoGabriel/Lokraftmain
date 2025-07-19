@@ -10,7 +10,35 @@ module.exports = {
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    ...defaultConfig.theme,
+    screens: {
+      mxs: '365px',
+      xs: '430px',
+      xm: '500px',
+      sxm: '570px',
+      sm: '640px',
+      xsm: '680px',
+      md: '768px',
+      smd: '820px',
+      xmd: '900px',
+      lg: '1024px',
+      llg: '1060px',
+      lllg: '1080px',
+      '2lg': '1100px',
+      xlg: '1200px',
+      xl: '1280px',
+      '2xl': '1400px',
+    },
+    container: {
+      center: true,
+      padding: {
+        default: '1rem',
+        lg: '6rem',
+      },
+      screens: {
+        default: '100%',
+        lg: '1400px',
+      },
+    },
     extend: {
       colors: {
         ...defaultConfig.theme.extend.colors,

@@ -3,7 +3,7 @@ import Image from "next/image"
 import { TechncianDp } from "@/public"
 const Header = () => {
   return (
-    <header className="bg-white border-b border-gray-200 px-6 py-4">
+    <header className="bg-white w-full border-b border-gray-200 px-6 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <h1 className="text-xl font-medium text-gray-800">Hello Grace,</h1>

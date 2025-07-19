@@ -7,7 +7,7 @@ import who from "@/public/who.png"
 export default function WhoWeAre() {
   return (
     <div className="bg-[#02846B] text-white min-h-[400px] sm:min-h-[500px] lg:h-[670px] py-8 sm:py-12 lg:pt-[118px] lg:pb-0 flex items-center lg:items-end justify-center lg:justify-end px-4 sm:px-6 md:px-12 lg:pl-36">
-      <div className="w-full flex flex-col lg:flex-row h-full">
+      <div className="w-full container mx-auto flex flex-col lg:flex-row h-full">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
