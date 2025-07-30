@@ -4,6 +4,7 @@ import { useState } from "react"
 import Job_List from "./Job_List"
 import Job_Detail from "./Job_Detail"
 import { BedFrame } from "@/public"
+import Wallet_Balance from "./Wallet_Balance"
 
 const mockJobs = [
   {
@@ -83,8 +84,16 @@ const Dashboard = () => {
         <button className="rounded-[5px] px-[14px] py-[9px] border border-gray-500 text-[12px]">Most Recent</button>
       </div>
       <div className="flex gap-3">
+        <div className="w-[30%]">
         <Job_List jobs={mockJobs} selectedJob={selectedJob} onJobSelect={handleJobSelect} />
+        </div>
+        <div className="w-[50%]">
         <Job_Detail job={selectedJob} />
+        </div>
+        <div className="flex flex-col w-[30%] gap-2">
+          <Wallet_Balance/>
+
+        </div>
       </div>
     </div>
   )
