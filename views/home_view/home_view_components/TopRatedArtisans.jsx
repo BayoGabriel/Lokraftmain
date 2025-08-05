@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { LuCrown } from "react-icons/lu"
 import { FiChevronLeft, FiChevronRight, FiMapPin } from "react-icons/fi"
@@ -61,6 +61,20 @@ const artisansData = [
 export default function TopRatedArtisans() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [itemsToShow, setItemsToShow] = useState(1)
+
+  useEffect(() => {
+    const updateItemsToShow = () => {
+      if (window.innerWidth >= 1024) setItemsToShow(3)
+      else if (window.innerWidth >= 768) setItemsToShow(2)
+      else setItemsToShow(1)
+    }
+
+    updateItemsToShow()
+    window.addEventListener("resize", updateItemsToShow)
+
+    return () => window.removeEventListener("resize", updateItemsToShow)
+  }, [])
 
   const nextSlide = () => {
     if (isAnimating) return
@@ -78,7 +92,6 @@ export default function TopRatedArtisans() {
 
   const getVisibleArtisans = () => {
     const visible = []
-    const itemsToShow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1
     for (let i = 0; i < itemsToShow; i++) {
       const index = (currentIndex + i) % artisansData.length
       visible.push(artisansData[index])
