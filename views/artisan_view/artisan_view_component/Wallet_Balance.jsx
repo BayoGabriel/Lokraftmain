@@ -1,7 +1,7 @@
 import { Wallet_Absolute_Img, Wallet_Icon } from "@/public/svg"
 import Link from "next/link"
 
-const Wallet_Balance = ({absoluteImg = <Wallet_Absolute_Img />, title="Wallet Balance", linkText="view wallet", linkurl = "/wallet", icon = <Wallet_Icon/>, amount= "N500,000,000", description= "Available balance"}) => {
+const Wallet_Balance = ({absoluteImg = <Wallet_Absolute_Img />, title="Wallet Balance", linkText="view wallet", linkurl = "/artisan-dashboard/wallet", icon = <Wallet_Icon/>, amount= "N500,000,000", description= "Available balance"}) => {
   return (
     <div className="flex w-full bg-[#F5F2FF] flex-col gap-4 p-6 relative">
         <div className="flex justify-between items-center">

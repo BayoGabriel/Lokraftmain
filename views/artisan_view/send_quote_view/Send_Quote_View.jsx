@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import Job_Detail from "../artisan_view_component.jsx/Job_Detail"
+import Job_Detail from "../artisan_view_component/Job_Detail"
 import { BedFrame } from "@/public"
 
 const Send_Quote_View = () => {

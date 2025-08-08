@@ -1,4 +1,4 @@
-import Artisan_View_Modal from '@/views/artisan_view/artisan_view_component.jsx/Artisan_View_Modal'
+import Artisan_View_Modal from '@/views/artisan_view/artisan_view_component/Artisan_View_Modal'
 
 export default function RootLayout({ children }) {
   return (

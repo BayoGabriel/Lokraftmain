@@ -18,7 +18,9 @@ import LogoBeige from "./logobeige.svg"
 import Selfie from "./Ellipse 926.svg"
 import BidImage from './image.png'
 import BedFrame from "./bedframe.png"
+import Send_Money from './Send_Money'
 export {
+    Send_Money,
     BedFrame,
     BidImage,
     Selfie,

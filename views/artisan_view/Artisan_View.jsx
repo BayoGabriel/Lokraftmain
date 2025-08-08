@@ -1,6 +1,6 @@
 import React from 'react'
-import First_Component from './artisan_view_component.jsx/First_Component'
-import Dashboard from './artisan_view_component.jsx/Dashboard'
+import First_Component from './artisan_view_component/First_Component'
+import Dashboard from './artisan_view_component/Dashboard'
 
 const Artisan_View = () => {
   return (
