@@ -27,13 +27,7 @@ const Active_Bids = () => {
             style: 'bg-[#274E63]',
             text: 'Fix a leaking pipe and canal in Sangotedo, Lagos',
             url: '/bidss'
-        },
-        {
-            imgSrc: BidImage,
-            style: 'bg-[#B41C2DD4]',
-            text: 'Fix a leaking pipe and canal in Sangotedo, Lagos',
-            url: '/bidss'
-        },
+        }
     ]
   return (
     <div className="flex flex-col bg-[#FEF7EE] rounded-[6px] p-3 gap-4">
@@ -41,7 +35,7 @@ const Active_Bids = () => {
             <h6>Active Bids</h6>
             <Link href={"/active-bids"}>See all bids</Link>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
             {Bid_Data.map((item, index) => (
                 <Bid 
                     key={index}

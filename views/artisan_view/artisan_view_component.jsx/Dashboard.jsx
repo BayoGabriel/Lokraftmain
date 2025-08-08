@@ -72,7 +72,7 @@ const Dashboard = () => {
         <div className="w-[50%]">
         <Job_Detail job={selectedJob} />
         </div>
-        <div className="flex flex-col w-[30%] gap-2">
+        <div className="flex flex-col w-[40%] gap-6">
           <Wallet_Balance/>
           <Active_Bids/>
           <Stats/>
