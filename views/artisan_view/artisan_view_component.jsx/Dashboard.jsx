@@ -5,6 +5,8 @@ import Job_List from "./Job_List"
 import Job_Detail from "./Job_Detail"
 import { BedFrame } from "@/public"
 import Wallet_Balance from "./Wallet_Balance"
+import Stats from "./Stats"
+import Active_Bids from "./Active_Bids"
 
 const mockJobs = [
   {
@@ -47,26 +49,6 @@ const mockJobs = [
       memberSince: "Mar, 2024",
     },
   },
-//   {
-//     id: 3,
-//     title: "Toilet Pressure Cleaning",
-//     location: "Alaba, Lagos",
-//     postedTime: "40mins ago",
-//     price: 50000,
-//     image: BedFrame,
-//     description:
-//       "Need professional cleaning service for toilet pressure cleaning. Looking for someone with proper equipment and experience in deep cleaning services.",
-//     timeline: "April 28 - April 29, 2025",
-//     projectType: "One-time",
-//     client: {
-//       rating: 4.9,
-//       reviewsCount: 8,
-//       totalReviews: 10,
-//       location: "Ikeja, Lagos",
-//       jobsPosted: 3,
-//       memberSince: "Dec, 2024",
-//     },
-//   },
 ]
 
 const Dashboard = () => {
@@ -92,7 +74,8 @@ const Dashboard = () => {
         </div>
         <div className="flex flex-col w-[30%] gap-2">
           <Wallet_Balance/>
-
+          <Active_Bids/>
+          <Stats/>
         </div>
       </div>
     </div>
