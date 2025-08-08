@@ -9,11 +9,11 @@ export default function RootLayout({ children }) {
 
   return (
       <Fragment>
-        <div className="flex gap-2 w-full">
-          <div className="w-[20%]"><Sidebar /></div>
+        <div className="flex gap-2 w-full bg-gray-50">
+          <div className="w-[20%] bg-white"><Sidebar /></div>
           <main className="w-[78%]">
             <Header />
-            <div>
+            <div className="">
               {children}
               <Fragment />
               

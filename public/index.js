@@ -19,7 +19,9 @@ import Selfie from "./Ellipse 926.svg"
 import BidImage from './image.png'
 import BedFrame from "./bedframe.png"
 import Send_Money from './Send_Money'
+import Invoice from './Invoice'
 export {
+    Invoice,
     Send_Money,
     BedFrame,
     BidImage,

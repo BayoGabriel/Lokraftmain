@@ -1,4 +1,4 @@
-import { Send_Money } from "@/public"
+import { Invoice, Send_Money } from "@/public"
 import Card from "./Card"
 
 const Second_Section = () => {
@@ -16,21 +16,21 @@ const Second_Section = () => {
         {
             svg: Send_Money,
             heading: 'Withdraw',
-            description: ''
+            description: 'Withdraw money to any bank of your choice'
         },
         {
-            svg: Send_Money,
+            svg: Invoice,
             heading: 'Invoice',
-            description: ''
+            description: 'Send money to 80+ countries instantly'
         },
     ]
   return (
-    <div className="">
-        <div className="grid grid-cols-4 max-md:grid-cols-2">
+    <div className="my-4">
+        <div className="grid grid-cols-4 gap-5 max-md:grid-cols-2">
             {Card_Data.map((item,index) => (
                 <Card
                     key={index}
-                    svg={item.svg}
+                    svg={<item.svg/>}
                     heading={item.heading}
                     description={item.description}
                 />
