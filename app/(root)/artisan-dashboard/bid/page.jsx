@@ -1,7 +1,7 @@
-import Bid_View from "@/views/artisan_view/bid_view/Bid_View"
+import Bid_View from "@/views/artisan_view/send_quote_view/Bid_View"
 import { Fragment } from "react"
 
-const Bid_View = () => {
+const Bid = () => {
   return (
     <Fragment>
         <Bid_View/>
@@ -9,4 +9,4 @@ const Bid_View = () => {
   )
 }
 
-export default Bid_View
+export default Bid
