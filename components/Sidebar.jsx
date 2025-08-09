@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   const menuItems = [
     { icon: FiGrid, label: "Dashboard", path: "/artisan-dashboard" },
-    { icon: FiFileText, label: "Bids", path: "/artisan-dashboard/bids" },
+    { icon: FiFileText, label: "Bids", path: "/artisan-dashboard/bid" },
     { icon: FiCreditCard, label: "Wallet", path: "/artisan-dashboard/wallet" },
     { icon: FiMessageSquare, label: "Messages", path: "/artisan-dashboard/messages" },
     { icon: FiUser, label: "Profile", path: "/artisan-dashboard/profile" },

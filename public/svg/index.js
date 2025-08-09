@@ -6,7 +6,9 @@ import First_Circle from "./First_Circle";
 import Second_Circle from "./Second_Circle";
 import Timeline_Icon from "./Timeline_Icon";
 import Coins from "./Coins";
+import Edit from "./Edit";
 export {
+    Edit,
     Wallet_Icon,
     Coins,
     Wallet_Absolute_Img,

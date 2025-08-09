@@ -20,7 +20,13 @@ import BidImage from './image.png'
 import BedFrame from "./bedframe.png"
 import Send_Money from './Send_Money'
 import Invoice from './Invoice'
+import BigBed from './Info banner.png'
+import ProfilePicture from './profileimage.png'
+import BannerImage from './bannerimage.png'
 export {
+    ProfilePicture,
+    BannerImage,
+    BigBed,
     Invoice,
     Send_Money,
     BedFrame,

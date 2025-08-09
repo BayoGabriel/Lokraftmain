@@ -1,47 +1,93 @@
-"use client"
+"use client";
+import { createContext, useContext, useState } from "react";
+import { Mock_Jobs } from "@/data/artisan_data/Mock_Jobs";
 
-import { createContext, useState, useContext, Fragment } from "react"
-import Header from "./Header"
-import Sidebar from "@/components/Sidebar"
-import { Mock_Jobs } from "@/data/artisan_data/Mock_Jobs"
+const ArtisanContext = createContext();
+export const useArtisanContext = () => useContext(ArtisanContext);
 
-const AppContext = createContext()
+export default function ArtisanProvider({ children }) {
+  const [showBalance, setShowBalance] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(Mock_Jobs[0]);
+  const [quoteItems, setQuoteItems] = useState([
+    { id: 1, name: "", cost: "" },
+    { id: 2, name: "", cost: "" },
+  ]);
+  const [additionalInfo, setAdditionalInfo] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
 
-export const useArtisanContext = () => useContext(AppContext)
+  const toggleBalance = () => setShowBalance((prev) => !prev);
+  const handleJobSelect = (job) => setSelectedJob(job);
 
-export default function RootLayout({ children }) {
-  const [showBalance, setShowBalance] = useState(false)
-  const [selectedJob, setSelectedJob] = useState(Mock_Jobs[0])
+  const addNewItem = () =>
+    setQuoteItems((prev) => [...prev, { id: Date.now(), name: "", cost: "" }]);
 
-  const handleJobSelect = (job) => {
-    setSelectedJob(job)
-  }
+  const removeItem = (id) =>
+    setQuoteItems((prev) => (prev.length > 1 ? prev.filter((i) => i.id !== id) : prev));
 
-  const toggleBalance = () => {
-    setShowBalance((prev) => !prev)
-  }
+  const updateItem = (id, field, value) =>
+    setQuoteItems((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, [field]: value } : item))
+    );
 
-  const value = {
-    showBalance,
-    toggleBalance,
-    selectedJob,
-    handleJobSelect,
-    Mock_Jobs,
-  }
+  const totalBudget = quoteItems.reduce(
+    (total, item) => total + (parseFloat(item.cost) || 0),
+    0
+  );
 
+  const submitQuote = () => {
+    setModalOpen(true);
+  };
+  const [isEditing, setIsEditing] = useState(false);
+    const [addressData, setAddressData] = useState({
+      country: 'Nigeria',
+      state: 'Lagos',
+      city: 'Lagos',
+      streetAddress: '10 Kings Avenue, Lagos Igando/Egan, Nigeria',
+      zipCode: '100223'
+    });
+  
+    const handleInputChange = (field, value) => {
+      setAddressData(prev => ({
+        ...prev,
+        [field]: value
+      }));
+    };
+  
+    const handleSave = () => {
+      setIsEditing(false);
+    };
+  
+    const handleCancel = () => {
+      setIsEditing(false);
+    };
   return (
-    <AppContext.Provider value={value}>
-      <Fragment>
-        <div className="flex gap-2 w-full bg-gray-50">
-          <div className="w-[20%] bg-white">
-            <Sidebar />
-          </div>
-          <main className="w-[78%]">
-            <Header />
-            <div>{children}</div>
-          </main>
-        </div>
-      </Fragment>
-    </AppContext.Provider>
-  )
+    <ArtisanContext.Provider
+      value={{
+        isEditing,
+        setIsEditing,
+        addressData,
+        setAddressData,
+        handleInputChange,
+        handleSave,
+        handleCancel,
+        showBalance,
+        toggleBalance,
+        selectedJob,
+        handleJobSelect,
+        Mock_Jobs,
+        quoteItems,
+        addNewItem,
+        removeItem,
+        updateItem,
+        additionalInfo,
+        setAdditionalInfo,
+        totalBudget,
+        modalOpen,
+        setModalOpen,
+        submitQuote,
+      }}
+    >
+      {children}
+    </ArtisanContext.Provider>
+  );
 }
