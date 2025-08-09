@@ -1,8 +1,8 @@
 import { FiMapPin, FiStar, FiBriefcase } from "react-icons/fi"
 import Budget_Icon from "@/public/svg/Budget_Icon";
-import Timeline_Icon from "@/public/svg/Timeline_Icon";
 import { MdOutlineVerified, MdOutlineStickyNote2 } from "react-icons/md";
 import Link from "next/link";
+import { Timeline_Icon } from "@/public/svg";
 
 const Job_Detail = ({ job }) => {
   if (!job) {

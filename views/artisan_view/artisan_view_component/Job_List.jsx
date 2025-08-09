@@ -1,5 +1,3 @@
-"use client"
-
 import Card from "./Card"
 
 const Job_List = ({ jobs, selectedJob, onJobSelect }) => {

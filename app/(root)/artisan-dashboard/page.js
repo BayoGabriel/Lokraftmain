@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 const Artisan_Dashboard = () => {
   return (
     <Fragment>
-          <Artisan_View/>
+        <Artisan_View/>
     </Fragment>
   )
 }
