@@ -3,6 +3,10 @@ import Header from "@/views/artisan_view/artisan_view_component/Header";
 import Modal from "@/views/artisan_view/send_quote_view/send_quote_view_components/Modal";
 import CustomerProvider from "@/views/customer_view/customer_view_components/Customer_View_Modal";
 import { CiHome } from "react-icons/ci";
+import { FiMessageSquare } from "react-icons/fi";
+import { LuWallet } from "react-icons/lu";
+import { MdOutlineEngineering, MdOutlineGroups } from "react-icons/md";
+import { SlPicture } from "react-icons/sl";
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +15,15 @@ export default function RootLayout({ children }) {
         <div className="w-[20%] bg-white">
           <Sidebar
             menuItems={[
-                { icon: <CiHome className="w-5 h-5" />, label: "Home", path: "/" }
+                { icon: <CiHome className="w-5 h-5" />, label: "Home", path: "/customer-dashboard" },
+                { icon: <MdOutlineEngineering className="w-5 h-5" />, label: "Artisans", path: "/customer-dashboard/artisan" },
+                { icon: <SlPicture className="w-5 h-5" />, label: "Bid", path: "/customer-dashboard/bid" },
+                { icon: <LuWallet className="w-5 h-5" />, label: "Wallet", path: "/customer-dashboard/wallet" },
+                { icon: <FiMessageSquare className="w-5 h-5" />, label: "Messages", path: "/customer-dashboard/messages" },
+                { icon: <MdOutlineGroups className="w-5 h-5" />, label: "Community", path: "/customer-dashboard/community" },
+                { icon: <MdOutlineGroups className="w-5 h-5" />, label: "Category", path: "/customer-dashboard/category" },
+                { icon: <MdOutlineGroups className="w-5 h-5" />, label: "Profile", path: "/customer-dashboard/profile" },
+                { icon: <MdOutlineGroups className="w-5 h-5" />, label: "Category", path: "/customer-dashboard/category" },
             ]}
             footerItem={
                 <div className="text-center p-6 bg-green-700 text-white">
@@ -21,7 +33,7 @@ export default function RootLayout({ children }) {
             />
         </div>
         <main className="w-[78%]">
-          {/* <Header /> */}
+          <Header />
           <div>{children}</div>
         </main>
       </div>

@@ -1,8 +1,11 @@
 import React from 'react'
+import Dashboard from './customer_view_components/Dashboard'
 
 const Customer_View = () => {
   return (
-    <div>Customer_View</div>
+    <div>
+      <Dashboard/>
+    </div>
   )
 }
 
