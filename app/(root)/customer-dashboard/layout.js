@@ -14,7 +14,7 @@ import { Green_Bg } from "@/public/svg";
 export default function RootLayout({ children }) {
   return (
     <CustomerProvider>
-      <div className="flex gap-2 w-full bg-gray-50">
+      <div className="flex gap-2 w-full bg-white">
         <div className="w-[20%] bg-white">
           <Sidebar
             menuItems={[

@@ -1,19 +1,20 @@
-import React from 'react';
+"use client";
+import { useState } from "react";
+import { FaListUl } from "react-icons/fa6";
 import { 
-  FiMessageSquare, 
   FiChevronUp, 
   FiChevronDown, 
   FiCamera,
   FiCheck
-} from 'react-icons/fi';
+} from "react-icons/fi";
 
-// Messages Component
 const Messages = ({ 
   messages = [],
   onSeeAll = () => {},
-  isExpanded = false,
-  onToggleExpand = () => {}
+  defaultExpanded = false // start expanded or not
 }) => {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
   const defaultMessages = [
     {
       id: 1,
@@ -57,7 +58,7 @@ const Messages = ({
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-100">
         <div className="flex items-center gap-2">
-          <FiMessageSquare className="text-gray-600" size={20} />
+          <FaListUl className="text-gray-600" size={20} />
           <span className="font-medium text-gray-900">Messages</span>
         </div>
         <div className="flex items-center gap-3">
@@ -68,7 +69,7 @@ const Messages = ({
             See all
           </button>
           <button 
-            onClick={onToggleExpand}
+            onClick={() => setIsExpanded(prev => !prev)}
             className="text-gray-400 hover:text-gray-600"
           >
             {isExpanded ? <FiChevronUp size={20} /> : <FiChevronDown size={20} />}
@@ -115,4 +116,4 @@ const Messages = ({
     </div>
   );
 };
-export default Messages
+export default Messages;

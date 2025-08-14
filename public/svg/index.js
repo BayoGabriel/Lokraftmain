@@ -8,7 +8,11 @@ import Timeline_Icon from "./Timeline_Icon";
 import Coins from "./Coins";
 import Edit from "./Edit";
 import Green_Bg from './Green_Bg'
+import Community_Icon from './Community_Icon'
+import Social_Links from './Social_Links'
 export {
+    Community_Icon,
+    Social_Links,
     Green_Bg,
     Edit,
     Wallet_Icon,
