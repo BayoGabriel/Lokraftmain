@@ -7,7 +7,9 @@ import Second_Circle from "./Second_Circle";
 import Timeline_Icon from "./Timeline_Icon";
 import Coins from "./Coins";
 import Edit from "./Edit";
+import Green_Bg from './Green_Bg'
 export {
+    Green_Bg,
     Edit,
     Wallet_Icon,
     Coins,
