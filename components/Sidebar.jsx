@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { FullColorLogo } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,28 +15,64 @@ import {
   FiLogOut,
 } from "react-icons/fi";
 
-const Sidebar = () => {
+import { FullColorLogo } from "@/public";
+
+const defaultMenuItems = [
+  { icon: FiGrid, label: "Dashboard", path: "/artisan-dashboard" },
+  { icon: FiFileText, label: "Bids", path: "/artisan-dashboard/bid" },
+  { icon: FiCreditCard, label: "Wallet", path: "/artisan-dashboard/wallet" },
+  { icon: FiMessageSquare, label: "Messages", path: "/artisan-dashboard/messages" },
+  { icon: FiUser, label: "Profile", path: "/artisan-dashboard/profile" },
+  { icon: FiUsers, label: "Community", path: "/artisan-dashboard/community", badge: "new" },
+  { icon: FiBook, label: "Courses", path: "/artisan-dashboard/courses" },
+  { icon: FiSettings, label: "Settings", path: "/artisan-dashboard/settings" },
+];
+
+const defaultFooterItem = {
+  icon: FiLogOut,
+  label: "Logout",
+  path: "#",
+};
+
+export default function Sidebar({
+  logo = FullColorLogo,
+  menuItems = defaultMenuItems,
+  footerItem = defaultFooterItem,
+}) {
   const pathname = usePathname();
 
-  const menuItems = [
-    { icon: FiGrid, label: "Dashboard", path: "/artisan-dashboard" },
-    { icon: FiFileText, label: "Bids", path: "/artisan-dashboard/bid" },
-    { icon: FiCreditCard, label: "Wallet", path: "/artisan-dashboard/wallet" },
-    { icon: FiMessageSquare, label: "Messages", path: "/artisan-dashboard/messages" },
-    { icon: FiUser, label: "Profile", path: "/artisan-dashboard/profile" },
-    { icon: FiUsers, label: "Community", path: "/artisan-dashboard/community", badge: "new" },
-    { icon: FiBook, label: "Courses", path: "/artisan-dashboard/courses" },
-    { icon: FiSettings, label: "Settings", path: "/artisan-dashboard/settings" },
-  ];
+  const renderFooter = () => {
+    if (!footerItem) return null;
+
+    // If it's a valid React element, render as-is
+    if (typeof footerItem !== "object" || footerItem?.props) {
+      return <div className="p-4 border-t border-gray-200">{footerItem}</div>;
+    }
+
+    // If it's an object (menu-style), render link
+    return (
+      <div className="p-4 border-t border-gray-200">
+        <Link
+          href={footerItem.path}
+          className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <footerItem.icon className="w-5 h-5" />
+          <span className="font-medium">{footerItem.label}</span>
+        </Link>
+      </div>
+    );
+  };
 
   return (
     <aside className="bg-white w-full border-r border-gray-200 h-screen flex flex-col">
+      {/* Logo */}
       <div className="p-6">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src={FullColorLogo} alt="logo" />
+          <Image src={logo} alt="logo" />
         </Link>
       </div>
 
+      {/* Menu */}
       <nav className="flex-1 px-4">
         <ul className="space-y-2">
           {menuItems.map((item, index) => {
@@ -66,17 +101,8 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      <div className="p-4 border-t border-gray-200">
-        <Link
-          href="#"
-          className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
-        >
-          <FiLogOut className="w-5 h-5" />
-          <span className="font-medium">Logout</span>
-        </Link>
-      </div>
+      {/* Footer */}
+      {renderFooter()}
     </aside>
   );
-};
-
-export default Sidebar;
+}
