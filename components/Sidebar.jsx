@@ -14,28 +14,26 @@ import {
   FiSettings,
   FiLogOut,
 } from "react-icons/fi";
-
 import { FullColorLogo } from "@/public";
 
 const defaultMenuItems = [
-  { icon: FiGrid, label: "Dashboard", path: "/artisan-dashboard" },
-  { icon: FiFileText, label: "Bids", path: "/artisan-dashboard/bid" },
-  { icon: FiCreditCard, label: "Wallet", path: "/artisan-dashboard/wallet" },
-  { icon: FiMessageSquare, label: "Messages", path: "/artisan-dashboard/messages" },
-  { icon: FiUser, label: "Profile", path: "/artisan-dashboard/profile" },
-  { icon: FiUsers, label: "Community", path: "/artisan-dashboard/community", badge: "new" },
-  { icon: FiBook, label: "Courses", path: "/artisan-dashboard/courses" },
-  { icon: FiSettings, label: "Settings", path: "/artisan-dashboard/settings" },
+  { icon: <FiGrid className="w-5 h-5" />, label: "Dashboard", path: "/artisan-dashboard" },
+  { icon: <FiFileText className="w-5 h-5" />, label: "Bids", path: "/artisan-dashboard/bid" },
+  { icon: <FiCreditCard className="w-5 h-5" />, label: "Wallet", path: "/artisan-dashboard/wallet" },
+  { icon: <FiMessageSquare className="w-5 h-5" />, label: "Messages", path: "/artisan-dashboard/messages" },
+  { icon: <FiUser className="w-5 h-5" />, label: "Profile", path: "/artisan-dashboard/profile" },
+  { icon: <FiUsers className="w-5 h-5" />, label: "Community", path: "/artisan-dashboard/community", badge: "new" },
+  { icon: <FiBook className="w-5 h-5" />, label: "Courses", path: "/artisan-dashboard/courses" },
+  { icon: <FiSettings className="w-5 h-5" />, label: "Settings", path: "/artisan-dashboard/settings" },
 ];
 
 const defaultFooterItem = {
-  icon: FiLogOut,
+  icon: <FiLogOut className="w-5 h-5" />,
   label: "Logout",
   path: "#",
 };
 
 export default function Sidebar({
-  logo = FullColorLogo,
   menuItems = defaultMenuItems,
   footerItem = defaultFooterItem,
 }) {
@@ -44,19 +42,17 @@ export default function Sidebar({
   const renderFooter = () => {
     if (!footerItem) return null;
 
-    // If it's a valid React element, render as-is
-    if (typeof footerItem !== "object" || footerItem?.props) {
+    if (!footerItem.path && !footerItem.label) {
       return <div className="p-4 border-t border-gray-200">{footerItem}</div>;
     }
 
-    // If it's an object (menu-style), render link
     return (
       <div className="p-4 border-t border-gray-200">
         <Link
           href={footerItem.path}
           className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
         >
-          <footerItem.icon className="w-5 h-5" />
+          {footerItem.icon}
           <span className="font-medium">{footerItem.label}</span>
         </Link>
       </div>
@@ -68,7 +64,7 @@ export default function Sidebar({
       {/* Logo */}
       <div className="p-6">
         <Link href="/" className="flex items-center space-x-2">
-          <Image src={logo} alt="logo" />
+          <Image src={FullColorLogo} alt="logo" />
         </Link>
       </div>
 
@@ -82,12 +78,10 @@ export default function Sidebar({
                 <Link
                   href={item.path}
                   className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                    isActive
-                      ? "bg-[#02846B] text-white"
-                      : "text-gray-600 hover:bg-gray-100"
+                    isActive ? "bg-[#02846B] text-white" : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
-                  <item.icon className="w-5 h-5" />
+                  {item.icon}
                   <span className="font-medium">{item.label}</span>
                   {item.badge && (
                     <span className="ml-auto bg-orange-500 text-white text-xs px-2 py-1 rounded-full">

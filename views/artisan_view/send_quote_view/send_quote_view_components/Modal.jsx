@@ -1,10 +1,10 @@
 "use client";
+import { useState } from "react";
 
-import { useArtisanContext } from "../../artisan_view_component/Artisan_View_Modal";
 
 
 export default function Modal() {
-  const { modalOpen, setModalOpen } = useArtisanContext();
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (!modalOpen) return null;
 
