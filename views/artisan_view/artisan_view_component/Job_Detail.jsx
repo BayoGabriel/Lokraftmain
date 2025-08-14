@@ -14,9 +14,8 @@ const Job_Detail = ({ job, showSendQuote = true }) => {
   }
 
   return (
-    <div className="p-4 border-[0.5px] border-[#E5E5E5] bg-white rounded-[17px]">
+    <div className="p-4 border-[0.5px] border-[#E5E5E5] bg-white z-[1] relative rounded-[17px]">
       <h1 className="text-xl font-semibold text-[#000000] mb-4">{job.title}</h1>
-
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-2">
           <MdOutlineStickyNote2 className="w-4 h-4 text-[#333333]" />

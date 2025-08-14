@@ -11,7 +11,7 @@ import {
 const Messages = ({ 
   messages = [],
   onSeeAll = () => {},
-  defaultExpanded = false // start expanded or not
+  defaultExpanded = true 
 }) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
@@ -54,7 +54,7 @@ const Messages = ({
   const messagesToShow = messages.length > 0 ? messages : defaultMessages;
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <div className="bg-white z-[1] relative rounded-lg shadow-sm border border-gray-200 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-100">
         <div className="flex items-center gap-2">

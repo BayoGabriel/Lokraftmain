@@ -5,7 +5,7 @@ import Job_Detail from "./Job_Detail"
 import Wallet_Balance from "./Wallet_Balance"
 import Stats from "./Stats"
 import Active_Bids from "./Active_Bids"
-import { useArtisanContext } from "./Artisan_View_Modal"
+import { useArtisanContext } from "../../../context/Artisan_Context"
 
 const Dashboard = () => {
   const { selectedJob, handleJobSelect, Mock_Jobs } = useArtisanContext()

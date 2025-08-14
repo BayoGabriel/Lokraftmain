@@ -1,9 +1,5 @@
 "use client"
-import Info_Icon from "@/public/svg/Info_Icon"
-import Community from "./Community"
-import Wallet_Balance from "./Wallet_Balance"
-import { Social_Links } from "@/public/svg"
-import Messages from "./Messages"
+import Right_Side from "./Right_Side"
 
 const Dashboard = () => {
 
@@ -13,22 +9,8 @@ const Dashboard = () => {
         <div className="w-[70%]">
             Vee
         </div>
-        <div className="flex flex-col w-[30%] gap-6">
-          <Wallet_Balance/>
-          <div className="flex flex-col gap-2">
-            <Community/>
-            <Community 
-              isNew = {false}
-              title="News and Information"
-              icon={Info_Icon}
-            />
-            <Community 
-              isNew = {false}
-              title="Social Media"
-              icon={Social_Links}
-            />
-          </div>
-          <Messages/>
+        <div className="w-[30%]">
+          <Right_Side/>
         </div>
       </div>
     </div>

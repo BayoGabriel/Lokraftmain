@@ -1,6 +1,6 @@
 "use client";
 
-import { useArtisanContext } from "../../artisan_view_component/Artisan_View_Modal";
+import { useArtisanContext } from "../../../../context/Artisan_Context";
 
 export default function Quote_Summary({ onSend }) {
   const { totalBudget } = useArtisanContext();

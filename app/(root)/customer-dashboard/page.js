@@ -1,5 +1,5 @@
 import Customer_View from '@/views/customer_view/Customer_View'
-import Customer_View_Modal from '@/views/customer_view/customer_view_components/Customer_View_Modal'
+import Customer_View_Modal from '@/context/Customer_Context'
 import React, { Fragment } from 'react'
 
 const Customer_Dashboard = () => {

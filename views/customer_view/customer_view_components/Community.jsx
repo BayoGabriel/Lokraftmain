@@ -18,7 +18,7 @@ const Community = ({
   contentClassName = ""
 }) => {
   return (
-    <div className={`bg-white rounded-lg shadow-sm border border-gray-200 ${className}`}>
+    <div className={`bg-white z-[1] relative rounded-lg shadow-sm border border-gray-200 ${className}`}>
       <button 
         onClick={onToggle}
         className={`w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors ${buttonClassName}`}

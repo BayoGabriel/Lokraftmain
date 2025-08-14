@@ -12,7 +12,7 @@ const Wallet_Balance = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="bg-white z-[1] relative rounded-lg shadow-sm border border-gray-200 p-6">
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-gray-900 mb-1">
           Available Balance on Wallet

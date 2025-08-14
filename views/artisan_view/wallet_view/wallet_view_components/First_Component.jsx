@@ -1,7 +1,7 @@
 "use client"
 import { Coins, First_Circle, Second_Circle } from "@/public/svg";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { useArtisanContext } from "@/views/artisan_view/artisan_view_component/Artisan_View_Modal";
+import { useArtisanContext } from "@/context/Artisan_Context";
 
 const First_Component = () => {
   const { showBalance, toggleBalance } = useArtisanContext();

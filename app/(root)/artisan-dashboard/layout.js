@@ -1,5 +1,5 @@
 import Sidebar from "@/components/Sidebar";
-import ArtisanProvider from "@/views/artisan_view/artisan_view_component/Artisan_View_Modal";
+import ArtisanProvider from "@/context/Artisan_Context";
 import Header from "@/views/artisan_view/artisan_view_component/Header";
 import Modal from "@/views/artisan_view/send_quote_view/send_quote_view_components/Modal";
 

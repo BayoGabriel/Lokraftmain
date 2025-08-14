@@ -1,7 +1,7 @@
 <svg width="593" height="585" viewBox="0 0 593 585" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_1726_1216)">
 <rect width="593" height="585" rx="24" fill="#E4E7A1"/>
-<path opacity="0.3" d="M221 -15C347.473 -15 450 87.5268 450 214C450 340.473 347.473 443 221 443C94.5268 443 -8 340.473 -8 214C-8 87.5268 94.5268 -15 221 -15Z" stroke="url(#paint0_linear_1726_1216)" stroke-width="120"/>
+<path opacity="0.3" d="M221 -15C347.473 -15 450 87.5268 450 214C450 340.473 347.473 443 221 443C94.5268 443 -8 340.473 -8 214C-8 87.5268 94.5268 -15 221 -15Z" stroke="url(#paint0_linear_1726_1216)" strokeWidth="120"/>
 <rect x="77" y="69" width="835" height="540" rx="30" fill="url(#pattern0_1726_1216)"/>
 </g>
 <defs>
@@ -9,8 +9,8 @@
 <use xlink:href="#image0_1726_1216" transform="scale(0.000244225 0.000377644)"/>
 </pattern>
 <linearGradient id="paint0_linear_1726_1216" x1="221" y1="-75" x2="221" y2="503" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0DBC92"/>
-<stop offset="1" stop-color="#E2F3F9" stop-opacity="0"/>
+<stop stopColor="#0DBC92"/>
+<stop offset="1" stopColor="#E2F3F9" stopOpacity="0"/>
 </linearGradient>
 <clipPath id="clip0_1726_1216">
 <rect width="593" height="585" rx="24" fill="white"/>
