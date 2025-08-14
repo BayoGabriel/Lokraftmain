@@ -1,27 +1,19 @@
-"use client"
+"use client";
+import { createContext, useContext } from "react";
 
-import { Fragment } from "react"
-// import Header from "./Header"
-import Sidebar from "@/components/Sidebar"
+const CustomerContext = createContext();
+export const useCustomerContext = () => useContext(CustomerContext);
 
-const Customer_View_Modal = ({ children }) => {
+export default function CustomerProvider({ children }) {
  
 
   return (
-      <Fragment>
-        <div className="flex gap-2 min-h-screen bg-gray-50">
-          <Sidebar />
-          <main className="flex-1 flex-col gap-2">
-            {/* <Header /> */}
-            <div className="mt-2">
-              {children}
-              <Fragment />
-              
-              <Fragment />
-            </div>
-          </main>
-        </div>
-      </Fragment>
-  )
+    <CustomerContext.Provider
+      value={{
+       
+      }}
+    >
+      {children}
+    </CustomerContext.Provider>
+  );
 }
-export default Customer_View_Modal
