@@ -1,3 +1,5 @@
+import Wallet_Balance from "./Wallet_Balance"
+
 const Dashboard = () => {
 
   return (
@@ -7,7 +9,7 @@ const Dashboard = () => {
             Vee
         </div>
         <div className="flex flex-col w-[30%] gap-6">
-          Blank
+          <Wallet_Balance/>
         </div>
       </div>
     </div>
