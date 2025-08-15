@@ -166,3 +166,14 @@ h2 {
 .encode-sans {
   font-family: "Encode Sans", sans-serif; 
 }
+.scrollClass {
+  overflow-y: scroll; /* keep scroll active */
+  
+  /* Hide scrollbar - Webkit browsers (Chrome, Safari, Edge) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollClass::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}

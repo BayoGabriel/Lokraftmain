@@ -10,6 +10,8 @@ import { SlPicture } from "react-icons/sl";
 import { CgProfile } from "react-icons/cg";
 import { FaLink } from "react-icons/fa6";
 import { Green_Bg } from "@/public/svg";
+import { SmallLogo } from "@/public";
+import Image from "next/image";
 
 export default function RootLayout({ children }) {
   return (
@@ -32,6 +34,14 @@ export default function RootLayout({ children }) {
             footerItem={
                 <div className="text-center relative text-white">
                     <div className="w-full"> <Green_Bg/></div>
+                    <div className="w-full absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 items-center justify-center">
+                      <Image src={SmallLogo} className="w-[50px] h-[50px]" alt="logo"/>
+                      <p className="text-lg font-[600]">Lokraft Pro</p>
+                      <p className="text-base text-[#FFFFFFCC]">Get access to all features on Lokraft</p>
+                      <button className="px-6 text-[#02846B] bg-white py-2 rounded-lg font-medium  transition-colors">
+                        Get Pro
+                      </button>
+                    </div>
                 </div>
             }
             />

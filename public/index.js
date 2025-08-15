@@ -23,8 +23,12 @@ import Invoice from './Invoice'
 import BigBed from './Info banner.png'
 import ProfilePicture from './profileimage.png'
 import BannerImage from './bannerimage.png'
+import WorldMap from './world.webp'
+import SmallLogo from './smalllogo.webp'
 export {
+    SmallLogo,
     ProfilePicture,
+    WorldMap,
     BannerImage,
     BigBed,
     Invoice,

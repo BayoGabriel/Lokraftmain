@@ -1,4 +1,5 @@
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import { Last_Month, This_Month } from '@/public/svg';
+import { XAxis, YAxis, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 const ArtisanSatisfaction = () => {
   const data = [
@@ -12,29 +13,26 @@ const ArtisanSatisfaction = () => {
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
-      <h4 className="text-2xl font-bold text-gray-800 mb-6">Artisan Satisfaction</h4>
+    <div className="bg-white w-full p-6 rounded-lg shadow-sm">
+      <h4 className="text-2xl font-bold text-[#222B45] mb-6">Artisan Satisfaction</h4>
       
-      <div className="h-80 mb-6">
+      <div className="h-[13.5rem] mb-2">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
             <defs>
               <linearGradient id="colorThisMonth" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#10b981" stopOpacity={0.1}/>
+                <stop offset="0%" stopColor="#10b981" stopOpacity={0.4}/>
+                <stop offset="50%" stopColor="#10b981" stopOpacity={0.05}/>
               </linearGradient>
               <linearGradient id="colorLastMonth" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.1}/>
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.4}/>
+                <stop offset="50%" stopColor="#3b82f6" stopOpacity={0.05}/>
               </linearGradient>
             </defs>
-            <XAxis 
-              dataKey="name" 
-              axisLine={false}
-              tickLine={false}
-              tick={false}
-            />
+
+            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={false} />
             <YAxis hide />
+            
             <Area
               type="monotone"
               dataKey="lastMonth"
@@ -55,25 +53,21 @@ const ArtisanSatisfaction = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-8">
+
+      <div className="grid grid-cols-2">
+        <div className="flex flex-col justify-center items-center gap-2">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+            <Last_Month/>
             <span className="text-gray-600">Last Month</span>
           </div>
+          <div className="text-xl font-bold text-[#222B45]">5 Artisans</div>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-2">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+            <This_Month/>
             <span className="text-gray-600">This Month</span>
           </div>
-        </div>
-        
-        <div className="flex items-center gap-8">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-800">5 Artisans</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-800">10 Artisans</div>
-          </div>
+          <div className="text-xl font-bold text-[#222B45]">10 Artisans</div>
         </div>
       </div>
     </div>

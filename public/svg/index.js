@@ -10,8 +10,18 @@ import Edit from "./Edit";
 import Green_Bg from './Green_Bg'
 import Community_Icon from './Community_Icon'
 import Social_Links from './Social_Links'
+import Balance_Icon from './Balance_Icon'
+import Yellow_Icon from './Yellow_Icon'
+import Bid_Icon from './Bid_Icon'
+import Artisan_Person from './Artisan_Person'
+import Last_Month from './Last_Month'
+import This_Month from './This_Month'
 export {
+    This_Month,
+    Last_Month,
     Community_Icon,
+    Yellow_Icon,
+    Balance_Icon,
     Social_Links,
     Green_Bg,
     Edit,
@@ -22,5 +32,7 @@ export {
     Stats_Icon,
     First_Circle,
     Second_Circle,
-    Timeline_Icon
+    Timeline_Icon,
+    Bid_Icon,
+    Artisan_Person
 };
