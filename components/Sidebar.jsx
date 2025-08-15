@@ -60,43 +60,40 @@ export default function Sidebar({
   };
 
   return (
-    <aside className="bg-white w-full border-r border-gray-200 h-screen flex flex-col">
-      {/* Logo */}
-      <div className="p-6">
-        <Link href="/" className="flex items-center space-x-2">
-          <Image src={FullColorLogo} alt="logo" />
-        </Link>
-      </div>
-
-      {/* Menu */}
-      <nav className="flex-1 px-4">
-        <ul className="space-y-2">
-          {menuItems.map((item, index) => {
-            const isActive = pathname === item.path;
-            return (
-              <li key={index}>
-                <Link
-                  href={item.path}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                    isActive ? "bg-[#02846B] text-white" : "text-gray-600 hover:bg-gray-100"
-                  }`}
-                >
-                  {item.icon}
-                  <span className="font-medium">{item.label}</span>
-                  {item.badge && (
-                    <span className="ml-auto bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
-                      {item.badge}
-                    </span>
-                  )}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-
-      {/* Footer */}
-      {renderFooter()}
-    </aside>
+    <div className="sticky top-0 left-0">
+      <aside className="bg-white w-full border-r border-gray-200 h-screen flex flex-col">
+        <div className="p-6 sticky top-0">
+          <Link href="/" className="flex items-center space-x-2">
+            <Image src={FullColorLogo} alt="logo" />
+          </Link>
+        </div>
+        <nav className="flex-1 overflow-auto scrollClass px-4">
+          <ul className="space-y-2">
+            {menuItems.map((item, index) => {
+              const isActive = pathname === item.path;
+              return (
+                <li key={index}>
+                  <Link
+                    href={item.path}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                      isActive ? "bg-[#02846B] text-white" : "text-gray-600 hover:bg-gray-100"
+                    }`}
+                  >
+                    {item.icon}
+                    <span className="font-medium">{item.label}</span>
+                    {item.badge && (
+                      <span className="ml-auto bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                        {item.badge}
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        {renderFooter()}
+      </aside>
+    </div>
   );
 }

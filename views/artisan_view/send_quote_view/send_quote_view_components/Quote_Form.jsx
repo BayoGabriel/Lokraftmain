@@ -1,7 +1,7 @@
 "use client";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { useState } from "react";
-import { useArtisanContext } from "../../artisan_view_component/Artisan_View_Modal";
+import { useArtisanContext } from "../../../../context/Artisan_Context";
 import Quote_Items from "./Quote_Items";
 import Quote_Summary from "./Quote_Summary";
 

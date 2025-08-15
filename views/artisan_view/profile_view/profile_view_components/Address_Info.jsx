@@ -1,6 +1,6 @@
 "use client"
 import { FiEdit3, FiChevronRight } from 'react-icons/fi';
-import { useArtisanContext } from '../../artisan_view_component/Artisan_View_Modal';
+import { useArtisanContext } from '../../../../context/Artisan_Context';
 
 const Address_Info = () => {
   const { setIsEditing, isEditing, addressData, handleSave, handleCancel, handleInputChange } = useArtisanContext()

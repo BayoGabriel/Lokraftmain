@@ -1,6 +1,6 @@
 "use client";
 import { FiPlus, FiTrash2 } from "react-icons/fi";
-import { useArtisanContext } from "../../artisan_view_component/Artisan_View_Modal";
+import { useArtisanContext } from "../../../../context/Artisan_Context";
 
 export default function Quote_Items() {
   const { quoteItems, addNewItem, removeItem, updateItem } = useArtisanContext();

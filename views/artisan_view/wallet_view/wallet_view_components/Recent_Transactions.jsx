@@ -1,7 +1,7 @@
 "use client"
 import { IoChevronForward } from 'react-icons/io5';
 import { MdOutlineReceiptLong } from 'react-icons/md';
-import { useArtisanContext } from '../../artisan_view_component/Artisan_View_Modal';
+import { useArtisanContext } from '../../../../context/Artisan_Context';
 import Transactions from '@/data/artisan_data/Transactions';
 
 const Recent_Transactions = () => {
