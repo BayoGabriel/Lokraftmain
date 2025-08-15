@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 import Dashboard from './customer_view_components/Dashboard'
 import First_Component from '../artisan_view/artisan_view_component/First_Component'
 
